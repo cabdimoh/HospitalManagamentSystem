@@ -1,0 +1,163 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+
+    <!-- =============================modals=================================== -->
+            <div class="modal fade" id="Searchbtn">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form action="">
+               <label for="searchbtn1" class="fw-bold text-success ms-1 mb-2">Search</label>
+              <input type="search" class="form-control" id="searchbtn1" placeholder="Search">
+              <div class="modal-footer">
+                  <button class="btn btn-success "> Search</button>
+              </div>
+            
+            </form>
+           
+          </div>
+        </div>
+      </div> 
+                </div> 
+            <div id="AddDoctor" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-success fw-bolder">Add New Doctor</h5>
+              <button type="button" class=" btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+            <form action="#" method="POST" enctype="multipart/form-data">                                  
+                {% csrf_token %}
+                <div class="row">
+                  {% for form in docform %}
+                  <div class="col-lg-6 col-md-12 col-sm-12 mt-2">     
+                  <label for="" class="form-label fw-bold ms-2">{{form.label}}</label>
+                    {% render_field form  class+="form-control" %}                     
+                  </div>
+                  {% endfor %}                  
+                </div>
+                    <button type="submit" class="btn bg-success mt-3 w-100">Save</button>
+                   </form>      
+            </div>
+          </div>
+        </div>
+            </div>
+<!-- ===============================================end modal======================================= -->
+
+    <div class="container mt-3 g-0">   
+        <div class="row ">
+             <div class="col-lg-3 mt-1 ">
+                     <input type="text" placeholder="Search by name" class="form-control" id="myInput" onkeyup='tableSearch()'>
+             
+            </div>
+
+            <div class="col-lg-3 mt-1">
+                  
+                    <input class="form-control" list="ChooseDepartMent" id="ChooseDepartMents" placeholder="search Deparments">
+                    <datalist id="ChooseDepartMent">
+                        <option value="Cardiology">
+                        <option value="Uralogy">
+                        <option value="Surgery">
+                        <option value="neurolgy">
+                        <option value="Dentistry">
+                        <option value="Gynaecology">
+                        <option value="Hematology">
+                    </datalist>
+            </div>
+
+             <div class="col-lg-3 col-md-4 col-sm-12 mt-1 offset-lg-3 text-end">
+            <button class="btn btn-success rounded-pill shadow " data-bs-toggle="modal" data-bs-target="#AddDoctor">
+                      <img src="{% static 'css/bootstrap-icons-1.8.3/plus-lg.svg' %}" alt="" class="img-fluid" >
+                    </button>
+            </div>
+
+       
+        
+        
+
+        
+         
+
+
+    </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row  border p-3 bg-white rounded "> 
+       <div class="col-lg-12 col-md-12 col-sm-12 mt-2 table-responsive">
+         <table class="table table-hover table-responsive-sm -md" id="myTable">      
+          <h5 class="fw-bolder ms-1 text-success mb-2">Add Doctor</h5>
+ 
+                 <thead class="table-head table-success">
+                  <tr>
+                    <th>photo</th>
+                     <th>Name</th>
+                     <th>Date of birth</th> 
+                     <th>Age</th>
+                     <th>Deparments</th>
+                     <th>Gender</th>
+                     <th>Marital</th>
+                     <th>Email</th>
+                     <th>Phone</th>
+                     <th>Address</th>
+                     <th class="text-end">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody class="justify-content-center"> 
+                      {% for d in alldoctor %}
+                        <tr>
+                          <td style="width: 35px;">  <img src="{{d.doc_img.url}}" class="img-fluid pic m  rounded-circle" alt=""></td>
+                          <td class=" fs-5">{{d.doc_name}}</td>
+                          <td class=" fs-5">{{d.doc_dob}}</td>
+                          <td class=" fs-5">{{d.doc_age}}</td>
+                          <td class=" fs-5">{{d.doc_depart}}</td>
+                          <td class=" fs-5">{{d.doc_gender}}</td>
+                          <td class=" fs-5">{{d.doc_Martial}}</td>
+                          <td class=" fs-5">{{d.doc_email}}</td>                           
+                          <td class=" fs-5">{{d.doc_phone}}</td>
+                          <td class=" fs-5">{{d.doc_address}}</td>   
+                            <td class="text-end ">
+                        <a href="{% url 'doctor_update' d.id %}" class=" mt-0 bg-success badge" ><img src="{% static 'css/bootstrap-icons-1.8.3/pen.svg'%}" alt=""></a>
+                        <a href="{% url 'delete_doctor' d.id %}"  class="bg-danger badge "><img src="{% static 'css/bootstrap-icons-1.8.3/trash.svg' %}" alt=""></a>
+                            </td>                              
+                       </tr>
+                       {% endfor %}
+                    
+                       
+                        
+                    </tbody>
+             
+     
+
+        </table>
+               <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end ">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"> <a href="#" class="page-link">5</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+                </li>
+    </ul>
+</nav>
+       </div>
+      </div>
+    </div>
+
+ 
+
+     {% endblock content %}

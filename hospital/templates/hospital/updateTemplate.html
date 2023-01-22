@@ -1,0 +1,230 @@
+{% extends 'main.html' %}  
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<!-- ===============================Modal fade end==================== -->
+
+{% if pages == 'Patient' %}
+<div class="container mt-3 bg-white p-4 "> 
+  <div class="card-header">
+    <h6 class="card-title fw-bolder">Edit Patient</h6>
+  </div>
+  <form action="#" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        
+        
+        
+        <div class="col-lg-6 col-md-12 col-sm-12 mt-2">        
+            <label for="" class="form-label fw-bold ms-2">Patient Name</label>
+            {% render_field  formUpdate.patient_name class+="form-control"  %}                       
+          </div>
+          
+          
+          <div class="col-lg-6 col-md-12 col-sm-12 mt-2">        
+              <label for="" class="form-label fw-bold ms-2">date of birth</label>
+              {% render_field  formUpdate.patient_dob class+="form-control  " type+='date'  %}                       
+          </div>
+          
+          
+          <div class="col-lg-6 col-md-12 col-sm-12 mt-2">        
+              <label for="" class="form-label fw-bold ms-2">Patien Gender</label>
+              {% render_field  formUpdate.patient_sex class+="form-select"  %}                       
+          </div>
+          
+          <div class="col-lg-6 col-md-12 col-sm-12 mt-2">        
+              <label for="" class="form-label fw-bold ms-2">Patien Marital</label>
+          {% render_field  formUpdate.patient_martial class+="form-select"  %}                       
+      </div>
+      
+          <div class="col-lg-6 col-md-12 col-sm-12 mt-2">        
+          <label for="" class="form-label fw-bold ms-2">Patient Phone</label>
+          {% render_field formUpdate.patient_number class+="form-control" type="number" %}                       
+          </div>
+          
+          <div class="col-lg-6 col-md-12 col-sm-12 mt-2">        
+              <label for="" class="form-label fw-bold ms-2">Patient Email</label>
+              {% render_field  formUpdate.patient_email class+="form-control" type="email"  %}                       
+          </div>
+
+          <div class="col-lg-6 col-md-12 col-sm-12 mt-2">        
+              <label for="" class="form-label fw-bold ms-2">Patient height</label>
+              {% render_field  formUpdate.patient_height class+="form-control" type="number" %}                       
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 mt-2">        
+              <label for="" class="form-label fw-bold ms-2">Patient Weight</label>
+              {% render_field  formUpdate.patient_weight class+="form-control" type="number" %}                       
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 mt-2">        
+              <label for="" class="form-label fw-bold ms-2">Patient Gaurdian name</label>
+              {% render_field formUpdate.emer_name class+="form-control"  %}                       
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 mt-2">        
+              <label for="" class="form-label fw-bold ms-2">Patient Gaurdian contact</label>
+              {% render_field  formUpdate.emer_contact class+="form-control"  %}                       
+            </div>
+
+            
+            <div class="col-lg-6 col-md-12 col-sm-12 mt-2">        
+              <label for="" class="form-label fw-bold ms-2">Patient Gaurdian relation</label>
+              {% render_field  formUpdate.emer_relation class+="form-control"  %}                       
+            </div>
+
+            
+            <div class="col-lg-6 col-md-12 col-sm-12 mt-2 mb-3">        
+              <label for="" class="form-label fw-bold ms-2">Patient Medical History</label>
+              {% render_field formUpdate.patient_medicationHistory class+="form-control" type="textArea" style="height: 30px" %}                       
+            </div>
+    </div>
+
+
+      <div class="modal-footer">
+    <a  href="{%url 'create_patient' %}" class="btn btn-warning" >Cancel</a>
+    <button type="submit" class="btn btn-success" >Save</button>
+  </div>  
+  </form>
+  </div>
+  {% elif page == 'editDepartment' %}
+  <div class="container ">
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-5 bg-white p-3 ">
+        <form action="#" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="card-header">
+            <div class="card-title">
+             <h1> Edit Deparment</h1>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-md-12">
+              <div class="form-floating mb-3">
+                {% render_field dforms.dep_name class+="form-control" id+="floatingInput" placeholder+="Name" %}                   
+                <label for="floatingInput" class="text-muted">Deparment Name</label>
+              </div>                
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-floating mb-3">
+                  {% render_field dforms.dep_head class+="form-control" id+="floatingInput" placeholder+="Name" %}                   
+                  <label for="floatingInput" class="text-muted">Deparment Head</label>
+                </div>                
+              </div>
+              <div class="col-md-12">
+                <div class="form-floating mb-3">
+                  {% render_field dforms.dep_location class+="form-control" id+="floatingInput" placeholder+="Name" %}                   
+                  <label for="floatingInput" class="text-muted">Deparment Location</label>
+                </div>                
+              </div>
+              <div class="col-md-12">
+                <div class="form-floating mb-3">
+                  {% render_field dforms.dep_phone class+="form-control" id+="floatingInput" placeholder+="Name" %}                   
+                  <label for="floatingInput" class="text-muted">Deparment Phone</label>
+                </div>                
+              </div>
+          
+          </div>          
+
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-success"> Save Changes </button>
+            <a href="{% url 'create_Department' %}" class="btn bg-info">Cancel </a>
+          </div>
+
+         </form>
+    </div>
+  </div>
+   </div>
+
+     {% elif page == 'EditAppointment' %}
+  <div class="container ">
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-5 bg-white p-3 ">
+        <form action="#" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="card-header">
+            <div class="card-title">
+             <h1> reschedule Appointment</h1>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                {% render_field formApp3.Doct_name class+="form-control" id+="floatingInput" placeholder+="Doctor Name" %}                   
+                <label for="floatingInput" class="text-muted">Doctor Name</label>
+              </div>                
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                {% render_field formApp3.opdate class+="form-control" id+="floatingInput" type+="date" %}                   
+                <label for="floatingInput" class="text-muted">Appointment Date</label>
+              </div>                
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                {% render_field formApp3.time_slot class+="form-control" id+="floatingInput" type+="time" %}                   
+                <label for="floatingInput" class="text-muted">Appointment Time</label>
+              </div>                
+            </div>
+
+              <div class="col-md-6">
+                <div class="form-floating mb-3">
+                  {% render_field formApp3.p_problem class+="form-control" id+="floatingInput" placeholder+="Name" %}                   
+                  <label for="floatingInput" class="text-muted">Patient Problem </label>
+                </div>                
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-floating mb-3">
+                  {% render_field formApp3.tokenNum class+="form-control" id+="floatingInput" placeholder+="Name"  %}                   
+                <label for="floatingInput" class="text-muted">Patient Qeueu Number </label>
+                </div>                
+              </div>
+          
+          </div>          
+
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-success"> Save Changes </button>
+            <a href="{% url 'create_Appointment' %}" class="btn bg-info">Cancel </a>
+          </div>
+
+         </form>
+    </div>
+  </div>
+   </div>
+{% else %}
+<div class="container mt-3 bg-white p-4 "> 
+  <div class="card-header">
+    <h6 class="card-title fw-bolder">Edit Patient</h6>
+  </div>
+  <form action="#" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+      {%for form in formupdate %}
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <label for="" class="form-label fw-bold ms-2">{{form.label}}</label>
+          {% render_field  form class+='form-control' %}
+        </div>
+        {% endfor%}
+    
+            
+          
+
+    </div>
+
+
+      <div class="modal-footer">
+    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-success" >Save</button>
+  </div>  
+  </form>
+  </div>
+{% endif %}
+
+{% endblock content %}
+ v 

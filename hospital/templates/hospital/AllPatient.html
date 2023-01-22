@@ -1,0 +1,124 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+    <!-- =============================modals=================================== -->
+        
+    <div class="modal fade" id="Searchbtn">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form action="">
+               <label for="searchbtn1" class="fw-bold text-success ms-1 mb-2">Search</label>
+              <input type="search" class="form-control" id="searchbtn1" placeholder="Search">
+              <div class="modal-footer">
+                  <button class="btn btn-success "> Search</button>
+              </div>
+            
+            </form>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ===============================================end modal======================================= -->
+
+
+    <div class="container mt-3 ">   
+        <div class="row ">
+             <div class="col-lg-3 g-0 mt-1">
+                     <input type="text" placeholder="Search Patient by name" class="form-control" id="myInput" onkeyup='tableSearch()'>
+             
+            </div>
+             <div class="col-lg-3 offset-lg-6 mt-1 text-end">
+                    <button class="btn btn-success ">Print
+                      <img src="{% static 'css/bootstrap-icons-1.8.3/printer-fill.svg' %}" alt="" class="img-fluid">
+                    </button>
+                     <button class="btn btn-success ">
+                      <img src="{% static 'css/bootstrap-icons-1.8.3/download.svg' %}" alt="" class="img-fluid">
+                    </button>
+             
+            </div>
+
+      
+
+           
+
+       
+        
+        
+       <div class="col-lg-12 col-md-12 col-sm-12 mt-3  border p-3 bg-white rounded ">
+         <table class="table table-hover" id="myTable" data-filter-control="true" data-show-search-clear-button="true">     
+               <h5 class="fw-bolder ms-1 text-success mb-2">All Patient</h5>
+  
+                 <thead class="table-head table-success">
+
+                    <tr>
+                        <th>Name</th>
+                        <th>dob</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Marital</th>
+                        <th>relatives</th>
+                        <th>r.role</th>
+                        <th> r.number</th>
+                        <th class="text-center">Action</th>
+                         </tr>
+                    </thead>
+                    <tbody class="justify-content-center">
+                      {% for p in patientlist %}
+                        <tr>
+                            <td>{{p.patient_name}}</td>
+                            <td>{{ p.patient_dob }}</td>
+                            <td>{{p.patient_number}}</td>
+                            <td>{{p.patient_email}}  </td>
+                            <td>{{p.patient_sex}} </td>
+                            <td>{{p.patient_martial}} </td>
+                            <td>{{p.emer_name}} </td>
+                            <td class=""><span class="badge bg-success">{{p.emer_relation}}</span>  </td>
+                            <td>{{p.emer_contact}}</td>
+
+                            <td class="text-end">
+                                <a href="{% url 'single_patient' p.id %}"  class="btn  badge rounded-pill "><img src="{% static 'css/bootstrap-icons-1.8.3/eye-fill.svg' %}" alt=""></a>
+                              
+                            </td>                              
+                       </tr>
+                       {% endfor %}
+                       
+                        
+                    </tbody>
+             
+     
+
+        </table>
+                
+         
+
+       <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end mt-2">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"> <a href="#" class="page-link">5</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+                </li>
+    </ul>
+</nav>
+       </div>
+
+    </div>
+    </div>
+{% endblock content %}
+ 
+
+ 

@@ -1,0 +1,244 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+
+    <!-- =============================modals=================================== -->
+               <div class="modal fade" id="Searchbtn">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form action="">
+               <label for="searchbtn1" class="fw-bold text-success ms-1 mb-2">Search</label>
+              <input type="search" class="form-control" id="searchbtn1" placeholder="Search">
+              <div class="modal-footer">
+                  <button class="btn btn-success "> Search</button>
+              </div>
+            
+            </form>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+           
+
+            <div id="EditDoctor" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-success fw-bolder">Edit Patient</h5>
+              <button type="button" class=" btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body ">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder=" Name">
+                    <label for="floatingInput" class="text-muted">Name</label>
+                  </div>
+                
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="floatingInput" placeholder="Second Name">
+                    <label for="floatingInput" class="text-muted">Age</label>
+                  </div>
+                
+                </div>
+               
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="floatingInput" placeholder="Second Name">
+                    <label for="floatingInput" class="text-muted">Phone</label>
+                  </div>
+                
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="Email ">
+                    <label for="floatingInput" class="text-muted">Email</label>
+                  </div>                
+                </div>
+
+                <div class="col-md-6">
+
+                <div class="form-check form-check-inline mt-3">
+                  <input type="radio" class="form-check-input" id="OptionRadio" name="options">
+                  <label for="OptionRadio" class="form-check-label fw-bold ps-2 text-uppercase">Male</label>
+                </div>
+                <div class="form-check form-check-inline mt-3">
+                  <input type="radio" class="form-check-input" id="OptionRadio1" name="options">
+                  <label for="OptionRadio1" class="form-check-label fw-bold ps-2  text-uppercase">Female</label>
+                </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="desease">
+                    <label for="floatingInput" class="text-muted">desease</label>
+                  </div>
+                
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Medication">
+                    <label for="floatingInput" class="text-muted">Medication</label>
+                  </div>                
+                </div>
+                   <div class="col-md-6 mb-3 ">
+                <div class="form-floating">
+                   <div class="dropdown">
+                    <select name="" id="" class="form-select form-select-lg ">
+                      <option value="Payments" selected class="">Payments</option>
+                      <option value="paid">Paid</option>
+                      <option value="Pending">Pending</option>
+                    </select>
+                   </div>
+                </div>       
+            </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-success" >Save</button>
+            </div>
+          </div>
+        </div>
+            </div>
+ 
+            <div class="modal fade" id="DeleteDoctor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-lg modal-xl">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-success fw-bolder" id="exampleModalLabel">Confirm To Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"> 
+                    <table class="table">
+                         <thead class="table-head">
+                 <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Desease</th>
+                        <th>Medication</th>
+                        <th>Payments</th>
+                       
+                         </tr>
+                    </thead>
+                    <tbody>
+                <tr class="">
+                       
+                            <td>Saamiya cabdale Xasan</td>
+                            <td>14 old</td>
+                            <td>252634585682</td>
+                            <td>Saamiya@gmail.com  </td>
+                            <td>Female </td>
+                            <td>Polio </td>
+                            <td>Pathology request</td>
+                            <td class=""><span class="badge bg-success">Paid</span>  </td>
+                                                     
+                   </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="search" class="btn btn-dark " data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success " >Delete</button>
+                    
+                
+                </div>
+                </div>
+            </div>
+            </div>
+
+      
+<!-- ===============================================end modal======================================= -->
+
+
+    <div class="container mt-3 ">   
+        <div class="row ">
+             <div class="col-lg-3 g-0 mt-1">
+                     <input type="text" placeholder="Search Patient by name" class="form-control" id="myInput" onkeyup='tableSearch()'>
+             
+            </div>
+             <div class="col-lg-3 offset-lg-6 mt-1 text-end">
+                    <button class="btn btn-success ">Print
+                      <img src="{% static 'css/bootstrap-icons-1.8.3/printer-fill.svg' %}" alt="" class="img-fluid">
+                    </button>
+                     <button class="btn btn-success ">
+                      <img src="{% static 'css/bootstrap-icons-1.8.3/download.svg' %}" alt="" class="img-fluid">
+                    </button>
+             
+            </div>
+       <div class="col-lg-12 col-md-12 col-sm-12 mt-3  border p-3 bg-white rounded ">
+         <table class="table table-hover" id="myTable" data-filter-control="true" data-show-search-clear-button="true">    
+                                <h5 class="fw-bolder ms-1 text-success mb-2">view Appointment</h5>
+   
+                 <thead class="table-head table-success">
+                    <tr>
+                        <th>patient Name</th>
+                        <th>Doctor Name</th>
+                        <th>Appointment Date</th>
+                        <th>Time Slot</th>
+                        <th>Patient Problem</th>
+                        <th>Timen Number</th>
+                        <th>Time Registered</th>                       
+                        <th class="text-center">View</th>
+                         </tr>
+                    </thead>
+                    <tbody class="">
+                      {% for a in allapp %}
+                        <tr>
+                          <td>cumar Qaalib Jamac</td>
+                            <td>{{a.Doct_name}}</td>
+                            <td>{{a.opdate}}</td>
+                            <td>{{a.time_slot}} </td>                           
+                            <td>{{a.p_problem}}</td>
+                            <td>{{a.tokenNum}} </td>
+                            <td>{{a.created}}</td>                            
+                            <td class="text-end">
+                            <a href="../html/PatientProfile.html"  class="btn  badge rounded-pill "><img src="{% static 'css/bootstrap-icons-1.8.3/eye-fill.svg' %}" alt=""></a>
+                            <td>                              
+                      </tr>                     
+                      {% endfor %}
+                        
+                    </tbody>
+             
+     
+
+        </table>
+                
+         
+
+       <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end mt-2">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"> <a href="#" class="page-link">5</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+                </li>
+    </ul>
+</nav>
+       </div>
+
+    </div>
+    </div>
+
+
+    {% endblock content %}

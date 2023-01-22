@@ -1,0 +1,48 @@
+@font-face {
+    font-family: myfirstfont;
+    src: url(../fonts/Poppins/Poppins-Light.ttf);
+}
+
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: myfirstfont;
+}
+
+body {
+    background: #f0f3fb;
+}
+
+/* 
+@media (min-width:300) {
+   .uls li a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+} 
+} */
+.spa {
+    margin-left: 12px;
+    flex-shrink: calc(1deg);
+}
+
+.addDoctor-bottom{
+    text-decoration: none;
+    color:black;
+}
+.addDoctor-bottom:hover{
+    color: white;
+}
+ul li  .removebultes{
+    list-style: none;
+}
+
+.thenday{
+    height: 470px;
+}
+
+.container{
+    overflow: hidden;
+}

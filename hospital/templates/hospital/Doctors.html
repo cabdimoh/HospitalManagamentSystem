@@ -1,0 +1,127 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+
+    <div class="modal fade" id="Searchbtn">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form action="">
+               <label for="searchbtn1" class="fw-bold text-success ms-1 mb-2">Search</label>
+              <input type="search" class="form-control" id="searchbtn1" placeholder="Search">
+              <div class="modal-footer">
+                  <button class="btn btn-success "> Search</button>
+              </div>
+            
+            </form>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="SearchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Search The doctor</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>      
+          <div class="modal-body">      
+              <input type="text" placeholder="Search by name" class="form-control" id="myInput" onkeyup='tableSearch()'>
+          </div>
+          <div class="modal-footer">
+            <button type="search" class="btn btn-dark " data-bs-dismiss="modal">close</button>
+            <button type="reset" class="btn btn-success clear" id="empty_search">clear</button>
+          
+          </div>
+        
+        </div>
+      </div>
+    </div>
+<!-- ========================modal========================== -->
+
+
+
+     <div class="container mt-3 ">   
+         <div class="row ">
+       <div class="col-lg-12 col-md-12 col-sm-12 mt-3  border p-3 bg-white rounded table-responsive">
+         <table class="table table-hover" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
+         
+        
+                
+                    <thead class="table-head table-success">
+                      <h5 class="fw-bolder ms-1 text-success mb-2">All Doctors</h5>
+                         <tr>
+                       <th>photo</th>
+                        <th>Name</th>
+                        <th>Date of birth</th>
+                        <th>Age</th>
+                        <th>Deparments</th>
+                        <th>Gender</th>
+                        <th>Marital</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th class="text-end">Action</th>
+                         </tr>
+                    </thead>
+                    <tbody class="justify-content-center">
+                      {% for d in doctorlist %}
+                        <tr>
+                          <td style="width: 35px;">  <img src="{{d.doc_img.url}}" class="img-fluid pic m  rounded-circle" alt=""></td>
+                            <td class=" fs-5">{{d.doc_name}}</td>
+                            <td class=" fs-5">{{d.doc_dob}}</td>
+                            <td class=" fs-5">{{d.doc_age}}</td>
+                            <td class=" fs-5">{{d.doc_depart}}</td>
+                            <td class=" fs-5">{{d.doc_gender}}</td>
+                            <td class=" fs-5">{{d.doc_Martial}}</td>
+                            <td class=" fs-5">{{d.doc_email}}</td>                           
+                            <td class=" fs-5">{{d.doc_phone}}</td>
+                            <td class=" fs-5">{{d.doc_address}}</td>   
+                            <td class="text-end ">
+                                    <a href="{% url 'doctor_view' d.id %}" class="btn btn-light badge rounded-pill "><img src="{% static 'css/bootstrap-icons-1.8.3/eye-fill.svg' %}" alt=""></a>
+                          
+                            </td>                              
+                       </tr>
+                     {% endfor %}
+                       
+                        
+                    </tbody>
+             
+     
+
+        </table>
+        
+       <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end mt-2 ">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"> <a href="#" class="page-link">5</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+                </li>
+    </ul>
+</nav>
+       </div>
+        
+         
+
+        </div>
+     </div>
+
+ 
+
+ 
+     {% endblock content %}

@@ -1,0 +1,304 @@
+    {% extends 'main.html' %}
+  {% load static %}
+    {% block content %}
+    <div class="modal fade" id="Searchbtn">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form action="">
+               <label for="searchbtn1" class="fw-bold text-success ms-1 mb-2">Search</label>
+              <input type="search" class="form-control" id="searchbtn1" placeholder="Search">
+              <div class="modal-footer">
+                  <button class="btn btn-success "> Search</button>
+              </div>
+            
+            </form>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ===================Modal========================== -->
+    <div class="container g-0">
+        <div class="row g-0">
+            <div class="col-lg-3 col-md-3 col-sm-12 g-0 mt-3">
+               <div class="card g-0">
+                <div class="card-header g-0 ">                    
+                    <img src="{{ singlepatient.patient_img.url }}" alt="" class="img-fluid rounded propicture" >                    
+                </div>
+                <div class="card-body">
+            </div>
+               </div>
+                <div class="card mt-3">
+                 <div class="card-headers2 ">
+                    <h6 class="fw-bold m-3 text-success ">About Patient</h6>
+                    <p></p>
+                    <table class="table table-borderless mt-3">
+                        <tr>
+                            <td class="fw-bolder ps-3">Name:</td>
+                            <td class="fw-bold ">{{singlepatient.patient_name}}</td>
+                        </tr>
+                         <tr>
+                            <td class="fw-bolder ps-3">Type:</td>
+                            <td class="fw-bold ">Patient</td>
+                        </tr>
+                         <tr>
+                            <td class="fw-bolder ps-3">Address:</td>
+                            <td class="fw-bold ">{{singlepatient.patient_location}}</td>
+                        </tr>
+                         <tr>
+                            <td class="fw-bolder ps-3">City:</td>
+                            <td class="fw-bold  ">Muqdisho</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bolder ps-3">Phone:</td>
+                            <td class="fw-bold "> <h6 class="  mt-1 small fw-bold mb-5"><img src="../css/bootstrap-icons-1.8.3/telephone-fill.svg" class="me-1" alt="">+45454544</h6>
+</td>
+                        </tr>
+                    </table>
+                   
+                      
+                       
+                 </div>
+             
+               </div>
+            </div>
+                <div class="col-lg-9 col-md-9 col-sm-12 g-0 mt-3">
+                    <div class="row ms-2  g-0">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                              <ul class="nav nav-pills mt-1 bg-white p-2 rounded">
+                                    <li class="nav-item ">
+                                      <a href="#AboutMe" class="nav-link text-uppercase  active" role="tab" data-bs-toggle="tab"><img src="../css/bootstrap-icons-1.8.3/person.svg" alt=""> About Me</a>
+                                    </li> 
+                                     <li class="nav-item ">
+                                      <a href="#Settings" class="nav-link text-uppercase " role="tab"  data-bs-toggle="tab"><img src="../css/bootstrap-icons-1.8.3/gear.svg" alt="">  Settings </a>
+                                    </li>                         
+                             </ul> 
+                                   <div class="tab-content mt-3">
+                                        <div class="tab-pane fade show active" role="tabpanel" id="AboutMe">     
+                                        <div class="bg-white p-3 rounded">
+                                            <h5 class="fw-bold mt-3 ms-2"> Codition Description </h5>
+                                            <p>77 y o woman in NAD with a h/o CAD, DM2, asthma and HTN on altace for 8 years
+                                            awoke from sleep around 2:30 am this morning of a sore throat and swelling of tongue.
+                                            She came immediately to the ED b/c she was having difficulty swallowing and some
+                                            trouble breathing due to obstruction caused by the swelling. She has never had a similar
+                                            reaction ever before and she did not have any associated SOB, chest pain, itching, or
+                                            nausea. She has not noticed any rashes, and has been afebrile. She says that she feels like
+                                            it is swollen down in her esophagus as well. In the ED she was given 25mg benadryl IV,</p>
+                                        </div>
+                                        <div class="container-fluid ">
+                                           
+                                          <div class="row justify-content-center bg-white mt-2 g-0 rounded">
+                                               <h6 class="fw-bolder mt-2 ms-4 text-uppercase"> Cure Process</h6>
+                                                <div
+                                                class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0    mb-3" >
+                                                <div class="  mb-5">
+                                                    <form id="form">
+                                                    <ul id="progressbar">
+                                                        <li class="active" id="step1">
+                                                        <strong>Surgery.</strong>
+                                                        </li>
+                                                        <li id="step2" class="ms-3"><strong>Chemotherapy</strong></li>
+                                                        <li id="step3" class="ms-3"><strong>Immunotherapy</strong></li>
+                                                        
+                                                    </ul>
+                                                    
+                                                   
+                                             
+                                                
+                                                
+                                                   
+                                                    </form>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         
+                                         
+                                            <div class=" bg-white mt-2 g-0 rounded p-3">
+                                                 <h5 class="fw-bold mt-3 ms-2"> Past Visit History </h5>
+                                                <table class="table table-striped">
+                                                    <thead class=" table-dark mb-3">
+                                                        <tr>
+                                                            <th>Date</th>
+                                                            <th>Doctor</th>
+                                                            <th>Treatment</th>
+                                                            <th>Charges</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>12.05.2011</td>
+                                                            <td>Dr. Moh Cumar</td>
+                                                            <td>Blood test</td>
+                                                            <td>$130</td>
+                                                        </tr>
+                                                         <tr>
+                                                            <td>15.12.2012</td>
+                                                            <td>Dr. Samatar Moh</td>
+                                                            <td>Operation</td>
+                                                            <td>$123</td>
+                                                        </tr>
+                                                         <tr>
+                                                            <td>01.11.2013</td>
+                                                            <td>Dr. Ciise Moh</td>
+                                                            <td>X-ray</td>
+                                                            <td>$150</td>
+                                                        </tr>
+                                                         <tr>
+                                                            <td>12.12.2014</td>
+                                                            <td>Dr. Abdi Moh</td>
+                                                            <td>Physithrepy</td>
+                                                            <td>$524</td>
+                                                        </tr>
+                                                         <tr>
+                                                            <td>10.12.2015</td>
+                                                            <td>Dr. Jaamac Moh</td>
+                                                            <td>X-ray</td>
+                                                            <td>$110</td>
+                                                        </tr>
+                                                         <tr>
+                                                            <td>12.10.2016</td>
+                                                        <td>Dr. Qawdhan Moh</td>
+                                                            <td>X-ray</td>
+                                                            <td>$350</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                           
+                                           </div>
+                                        
+                                       </div>
+                                        
+                                        <div class="tab-pane fade" role="tabpanel" id="Settings">    
+                                      <div class="container-fluid bg-white">
+                                    <div class="card-body ">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="First Name">
+                                            <label for="floatingInput" class="text-muted">First Name</label>
+                                        </div>
+                                        
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Second Name">
+                                            <label for="floatingInput" class="text-muted">Second Name</label>
+                                        </div>                                        
+                                        </div>
+                                        <div class="col-md-6 mt-2">
+                                        
+                                            <input type="file" class="form-control form-control-lg" >
+                                        
+                                    
+                                        
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control" id="floatingInput" placeholder="Second Name">
+                                            <label for="floatingInput" class="text-muted">Phone</label>
+                                        </div>
+                                        
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control" id="floatingInput" placeholder="Email ">
+                                            <label for="floatingInput" class="text-muted">Email</label>
+                                        </div>
+                                        
+                                        </div>
+                                         <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="text ">
+                                            <label for="floatingInput" class="text-muted">Location</label>
+                                        </div>
+                                        
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                        <div class="form-check form-check-inline mt-3">
+                                        <input type="radio" class="form-check-input" id="OptionRadio" name="options">
+                                        <label for="OptionRadio" class="form-check-label fw-bold ps-2 text-uppercase">Male</label>
+                                        </div>
+                                        <div class="form-check form-check-inline mt-3">
+                                        <input type="radio" class="form-check-input" id="OptionRadio1" name="options">
+                                        <label for="OptionRadio1" class="form-check-label fw-bold ps-2  text-uppercase">Female</label>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Address">
+                                            <label for="floatingInput" class="text-muted">Address</label>
+                                        </div>
+                                        
+                                        </div>
+
+                                        
+                                        
+                                        
+                                        
+                                    
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="modal-footer bg-white">
+                                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#alertsaved">Save</button>
+                                    </div>
+
+                                    
+                                    
+                                     </div>  
+                                  <div class="container-fluid ">
+                                    <div class="card-body  bg-white mt-3">
+                                        <h4 class="fw-bold my-3">Change Password</h4>
+                                         <div class="col-md-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Old Password">
+                                            <label for="floatingInput" class="text-muted">Old Password</label>
+                                        </div>                                        
+                                        </div>
+                                         <div class="col-md-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Enter New Password">
+                                            <label for="floatingInput" class="text-muted">Enter New Password</label>
+                                        </div>                                        
+                                        </div>
+                                         <div class="col-md-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Confirm new Password">
+                                            <label for="floatingInput" class="text-muted">Re enter Password</label>
+                                        </div> 
+                                         <div class="card-footer text-end">
+                                            <button type="button" class="btn btn-warning text-start" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-dark" >Save</button>
+                                        </div>
+
+                                        </div>
+                                    </div>
+                                  </div>
+                                         </div>
+
+                                        </div>
+
+                        </div>
+                                    
+                                    
+
+                                        
+
+                                        
+                    </div>
+                                
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+
+
+ 
+{% endblock content%}

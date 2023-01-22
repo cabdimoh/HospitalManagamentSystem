@@ -1,0 +1,195 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+    <!-- =============================modal fade======================= -->
+        
+    <div class="modal fade" id="Searchbtn">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form action="">
+               <label for="searchbtn1" class="fw-bold text-success ms-1 mb-2">Search</label>
+              <input type="search" class="form-control" id="searchbtn1" placeholder="Search">
+              <div class="modal-footer">
+                  <button class="btn btn-success "> Search</button>
+              </div>
+            
+            </form>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    
+             <div id="BookAppointment" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-success fw-bolder">Book Appointment</h5>
+              <button type="button" class=" btn-close" data-bs-dismiss="modal"></button>
+            </div> 
+                <form action="" method="POST">
+                  {% csrf_token %}
+                  <div class="modal-body ">
+                    {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-floating mb-3">
+                        {% render_field appforms.Doct_name class+="form-control" id+="floatingInput" placeholder+="Doctor Name" %}                   
+                        <label for="floatingInput" class="text-muted">Doctor Name</label>
+                      </div>                
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-floating mb-3">
+                        {% render_field appforms.opdate class+="form-control" id+="floatingInput" type+="date" %}                   
+                        <label for="floatingInput" class="text-muted">Appointment Date</label>
+                      </div>                
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-floating mb-3">
+                        {% render_field appforms.time_slot class+="form-control" id+="floatingInput" type+="time" %}                   
+                        <label for="floatingInput" class="text-muted">Appointment Time</label>
+                      </div>                
+                    </div>
+
+                      <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                          {% render_field appforms.p_problem class+="form-control" id+="floatingInput" placeholder+="Name" %}                   
+                          <label for="floatingInput" class="text-muted">Patient Problem </label>
+                        </div>                
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="form-floating mb-3">
+                          {% render_field appforms.tokenNum class+="form-control" id+="floatingInput" placeholder+="Name"  %}                   
+                        <label for="floatingInput" class="text-muted">Patient Qeueu Number </label>
+                        </div>                
+                      </div>
+                  </div>          
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" >Save</button>          
+                </div>
+                
+                </form>
+           
+
+            
+    
+          </div>
+        </div>
+            </div>
+  
+
+<!-- ===============================Modal fade end==================== -->
+
+  <div class="container mt-3 ">   
+        <div class="row ">
+               <div class="col-lg-3 mt-1 g-0 d-flex">
+            
+                        <input type="text" placeholder="Search Department by name" class="form-control " id="myInput" onkeyup='tableSearch()'>      
+            </div>
+            
+            <div class="col-lg-3 mt-1">
+                  
+                    <input class="form-control" list="ChooseDepartMent" id="ChooseDepartMents" placeholder="search Deparments">
+                    <datalist id="ChooseDepartMent">
+                        <option value="Cardiology">
+                        <option value="Uralogy">
+                        <option value="Surgery">
+                        <option value="neurolgy">
+                        <option value="Dentistry">
+                        <option value="Gynaecology">
+                        <option value="Hematology">
+                    </datalist>
+                    
+            </div>
+             <div class="col-lg-3 offset-lg-3 mt-1 text-end" >
+                    <button class="btn btn-success rounded-pill shadow" data-bs-toggle="modal" data-bs-target="#BookAppointment">
+                      <img src="{% static 'css/bootstrap-icons-1.8.3/plus-lg.svg' %}" alt="" class="img-fluid" >
+                    </button>
+                     <button class="btn btn-success rounded-pill shadow ">
+                      <img src="{% static 'css/bootstrap-icons-1.8.3/arrow-clockwise.svg' %}" alt="" class="img-fluid">
+                    </button>
+             
+            </div>
+        
+
+
+       
+        
+        
+       <div class="col-lg-12 col-md-12 col-sm-12 mt-3  border p-3 bg-white rounded">
+          <table class="table table-hover" id="myTable" data-filter-control="true" data-show-search-clear-button="true">  
+              <h5 class="fw-bolder ms-1 text-success mb-2">Book Appointment</h5>
+     
+              <thead class="table-head table-success">
+                <tr>
+                  <th>patient Name</th>
+                  <th>Doctor Name</th>
+                  <th>Appointment Date</th>
+                  <th>Time Slot</th>
+                  <th>Patient Problem</th>
+                  <th>Timen Number</th>
+                  <th>Time Registered</th>                       
+                  <th class="text-center">View</th>
+              </tr>
+                    </thead>
+                    <tbody class="justify-content-center">
+                      {% for a in Appoints %}
+                        <tr>
+                             <td>cumar Qaalib Jamac</td>
+                            <td>{{a.Doct_name}}</td>
+                            <td>{{a.opdate}}</td>
+                            <td>{{a.time_slot}} </td>                           
+                            <td>{{a.p_problem}}</td>
+                            <td>{{a.tokenNum}} </td>
+                            <td>{{a.created}}</td>              
+                            <td class="text-end">
+                                <a href="{% url 'edit_Appointment' a.id %}" class="btn  badge bg-success " ><img src="{% static 'css/bootstrap-icons-1.8.3/pen.svg' %}" alt=""></a>
+                                <a href="{% url 'delete_Appointment' a.id %}"  class="btn  badge bg-danger "><img src="{% static 'css/bootstrap-icons-1.8.3/trash.svg' %}" alt=""></a>
+                            </td>                              
+                       </tr>
+                                      
+                      {% endfor %}      
+               
+                       
+                        
+                    </tbody>
+             
+     
+
+        </table>
+               <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end ">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"> <a href="#" class="page-link">5</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+                </li>
+    </ul>
+</nav>
+       </div>
+        
+         
+
+
+    </div>
+    </div>
+   
+           
+
+{% endblock content %}

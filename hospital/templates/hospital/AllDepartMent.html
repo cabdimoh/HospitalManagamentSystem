@@ -1,0 +1,106 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+
+    <!-- =============================modals=================================== -->
+        
+    <div class="modal fade" id="Searchbtn">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form action="">
+               <label for="searchbtn1" class="fw-bold text-success ms-1 mb-2">Search</label>
+              <input type="search" class="form-control" id="searchbtn1" placeholder="Search">
+              <div class="modal-footer">
+                  <button class="btn btn-success "> Search</button>
+              </div>
+            
+            </form>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+      
+<!-- ===============================================end modal======================================= -->
+
+
+    <div class="container mt-3 ">   
+        <div class="row ">
+             <div class="col-lg-3 mt-1 g-0">
+                     <input type="text" placeholder="Search Department by name" class="form-control " id="myInput" onkeyup='tableSearch()'>
+             
+            </div>
+             <div class="col-lg-3 offset-lg-6 mt-1 text-end">
+                    <button class="btn btn-success  ">Print
+                      <img src="{% static 'css/bootstrap-icons-1.8.3/printer-fill.svg' %}" alt="" class="img-fluid ">
+                    </button>
+                     <button class="btn btn-success ">
+                      <img src="{% static 'css/bootstrap-icons-1.8.3/download.svg' %}" alt="" class="img-fluid"  >
+                    </button>
+                    
+                   
+             
+            </div>
+        
+             <div class="col-lg-12 col-md-12 col-sm-12 mt-3   border p-3 bg-white rounded ">
+         <table class="table table-hover  rounded " id="myTable" data-filter-control="true" data-show-search-clear-button="true">
+                      <h5 class="fw-bolder ms-1 text-success mb-2">All Deparment</h5>
+       
+                 <thead class="table-head table-success  ">
+                    <tr>
+                        <th>Department Name</th>
+                        <th>Department Head</th>
+                        <th>Deparment location</th>
+                        <th>Department Phone</th>
+                        <th>created date</th>
+                        
+                        <!-- <th class="text-end">Action</th>                      -->
+                        
+                         </tr>
+                    </thead>
+                    <tbody class="">
+                      {% for sd in allD %}
+                        <tr>
+                            <td>{{sd.dep_name}} </td>
+                            <td>{{sd.dep_head}}   </td>
+                            <td class="fw-bold">{{sd.dep_location}} </td>
+                            <td>{{sd.dep_phone}}</td>
+                            <td>{{sd.created}} </td>                            
+                        </tr>
+                        {% endfor %}
+                       
+                    </tbody>
+                
+             
+     
+
+        </table>
+         <nav aria-label="Page navigation ">
+        <ul class="pagination justify-content-end mt-2 ">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"> <a href="#" class="page-link">5</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+                </li>
+    </ul>
+       </nav>  
+       </div>
+    </div>
+        
+    </div>
+
+    {% endblock content %}

@@ -1,0 +1,263 @@
+{% extends 'main.html' %}  
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+    <div class="container g-0">
+        <div class="row g-0">
+            <div class="col-lg-3 col-md-3 col-sm-12 g-0 mt-3">
+               <div class="card">
+                <div class="card-headers ">
+                    <h5 class="text-white text-center mt-3">{{singleDoctor.doc_name}}</h5>
+                    <h6 class="text-white text-center mt-2">{{singleDoctor.doc_specialization}}</h6>
+                    <img src="{{singleDoctor.doc_img.url}}" alt="" class="img-fluid img-pro " >                    
+                </div>
+                <div class="card-body">
+                    <h6 class="mt-5 text-center fw-bold small ">{{singleDoctor.doc_address}} </h6>
+                    <h6 class=" text-center  small fw-bold">Muqdisho</h6>
+                    <h6 class=" text-center  small fw-bold"><img src="{% static 'css/bootstrap-icons-1.8.3/telephone-fill.svg' %}" class="me-1" alt="">+{{singleDoctor.doc_phone}}</h6>
+                </div>
+               </div>
+                <div class="card mt-3">
+                 <div class="card-headers2 ">
+                    <h5 class="fw-bolder ms-3 mt-3">Skills</h5>
+                    <div class="body">
+                        <h6 class="fw-bolder ms-3 mt-3">OPD</h6>
+                        <div class="progress m-2 mt-3">                        
+                        <div class="progress-bar bg-dark " role="progressbar" style="width: 60%;">60%</div>                        
+                     </div>  
+                      <h6 class="fw-bolder ms-3 mt-3">Operation</h6>
+                        <div class="progress m-2 mt-3">                        
+                        <div class="progress-bar bg-success " role="progressbar" style="width: 90%;">90%</div>                        
+                     </div> 
+                      <h6 class="fw-bolder ms-3 mt-3">Human Skills</h6>
+                        <div class="progress m-2 mt-3">                        
+                        <div class="progress-bar bg-info " role="progressbar" style="width: 30%;">30%</div>                        
+                     </div> 
+                      <h6 class="fw-bolder ms-3 mt-3">RND</h6>
+                        <div class="progress m-2 mt-3">                        
+                        <div class="progress-bar bg-warning " role="progressbar" style="width: 60%;">10%</div>                        
+                     </div> 
+                    </div>
+                      
+                       
+                 </div>
+             
+               </div>
+            </div>
+                <div class="col-lg-9 col-md-9 col-sm-12 g-0 mt-3">
+                    <div class="row ms-2 bg-white g-0">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                              <ul class="nav nav-pills mt-1 p-2">
+                                    <li class="nav-item ">
+                                      <a href="#AboutMe" class="nav-link text-uppercase  active" role="tab" data-bs-toggle="tab"><img src="../css/bootstrap-icons-1.8.3/person.svg" alt=""> About Me</a>
+                                    </li> 
+                                     <li class="nav-item ">
+                                      <a href="#Settings" class="nav-link text-uppercase " role="tab"  data-bs-toggle="tab"><img src="../css/bootstrap-icons-1.8.3/gear.svg" alt="">  Settings </a>
+                                    </li>                         
+                             </ul> 
+                                   <div class="tab-content mt-3">
+                                        <div class="tab-pane fade show active" role="tabpanel" id="AboutMe">     
+                                        <h5 class="fw-bold mt-3 ms-2"> About</h5>
+                                            <table class="table table-borderless bg-white rounded">
+                                              <thead>
+                                                <tr>
+                                                <th>full Name</th>
+                                                <th>Mobile</th>
+                                                <th>Email</th>
+                                                <th>Location</th>
+                                            </tr> 
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{{singleDoctor.doc_name}}</td>
+                                                    <td>{{singleDoctor.doc_phone}}</td>
+                                                    <td>{{singleDoctor.doc_email}}</td>
+                                                    <td>{{singleDoctor.doc_address}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div>
+                                        <h5 class="fw-bold mt-5 ms-2"> About</h5>
+                                        <p class="ms-2 ">I’m an average doctor with a not-so-average job: I travel the world, perform surgery on amazing marine animals, and mentor young scientists.We are physicians, scientists, nurses, patient advocates, and innovators focused on transforming diagnosis using health information drawn directly from the genome,Every day we’re asked if we’re doctors. Let us tell you: we’re Cat and Nat, and our goal is to alleviate foot pain without making anybody uncomfortable. 😉</p>
+                                        </div>
+                                        <div>
+                                          <h5 class="fw-bold mt-5 ms-2"> Education  </h5>
+                                          <h6 class="ms-2">Internal Medicine Residency, San Jose Hospital</h6>
+                                          <h6 class="ms-2">Vice President, Student National Medical Association chapter</h6>
+                                          <h6 class="ms-2">Internal Medicine Residency, San Jose Hospital</h6>
+                                          <h6 class="ms-2 mb-5">Vice President, Student National Medical Association chapter</h6>
+                                        </div>
+                                        <p>
+                                             <h5 class="fw-bold mt-5 ms-2"> Experience</h5>
+                                            <p class="ms-2">One year rotatory internship from April-2009 to march-2010 at B. J. Medical College, Ahmedabad.<br>
+                                            Three year residency at V.S. General Hospital as a resident in orthopedics from April - 2008 to April - 2011.<br>
+                                            I have worked as a part time physiotherapist in Apang manav mandal from 1st june 2004 to 31st jan 2005.<br>
+                                            Clinical and Research fellowship in Scoliosis at Shaurashtra University and Medical Centre (KUMC) , Krishna Hospital ,<br> Rajkot from April 2013 to June 2013.
+                                            2.5 Years Worked at Mahatma Gandhi General Hospital, Surendranagar.<br>
+                                            Consultant Orthopedics Surgeon Jalna 2 years.</p>
+                                           </div>
+                                        
+                                <div class="tab-pane fade" role="tabpanel" id="Settings">    
+                                  <div class="container-fluid">
+                                    <div class="card-body ">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="First Name">
+                                            <label for="floatingInput" class="text-muted">First Name</label>
+                                        </div>
+                                        
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Second Name">
+                                            <label for="floatingInput" class="text-muted">Second Name</label>
+                                        </div>                                        
+                                        </div>
+                                        <div class="col-md-6 mt-2">
+                                        
+                                            <input type="file" class="form-control form-control-lg" >
+                                        
+                                    
+                                        
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" class="form-control" id="floatingInput" placeholder="Second Name">
+                                            <label for="floatingInput" class="text-muted">Phone</label>
+                                        </div>
+                                        
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control" id="floatingInput" placeholder="Email ">
+                                            <label for="floatingInput" class="text-muted">Email</label>
+                                        </div>
+                                        
+                                        </div>
+                                         <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="text ">
+                                            <label for="floatingInput" class="text-muted">Location</label>
+                                        </div>
+                                        
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                        <div class="form-check form-check-inline mt-3">
+                                        <input type="radio" class="form-check-input" id="OptionRadio" name="options">
+                                        <label for="OptionRadio" class="form-check-label fw-bold ps-2 text-uppercase">Male</label>
+                                        </div>
+                                        <div class="form-check form-check-inline mt-3">
+                                        <input type="radio" class="form-check-input" id="OptionRadio1" name="options">
+                                        <label for="OptionRadio1" class="form-check-label fw-bold ps-2  text-uppercase">Female</label>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Address">
+                                            <label for="floatingInput" class="text-muted">Address</label>
+                                        </div>
+                                        
+                                        </div>
+
+                                        <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="occupation">
+                                            <label for="floatingInput" class="text-muted">occupation</label>
+                                        </div>
+                                        
+                                        </div>
+                                          <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Bio">
+                                            <label for="floatingInput" class="text-muted">Bio</label>
+                                        </div>
+                                        
+                                        </div>
+                                          <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Education">
+                                            <label for="floatingInput" class="text-muted">Education</label>
+                                        </div>
+                                        
+                                        </div>
+                                          <div class="col-md-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="occupation">
+                                            <label for="floatingInput" class="text-muted">Experience</label>
+                                        </div>
+                                        
+                                        </div>  <div class="col-md-12 ">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="occupation">
+                                            <label for="floatingInput" class="text-muted">Skills</label>
+                                        </div>
+                                        
+                                        </div>
+                                        
+                                    
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-success" >Save</button>
+                                    </div>
+
+                                    
+                                    
+                                     </div>  
+                                  <div class="container-fluid">
+                                    <div class="card-body">
+                                        <h4 class="fw-bold my-3">Change Password</h4>
+                                         <div class="col-md-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Old Password">
+                                            <label for="floatingInput" class="text-muted">Old Password</label>
+                                        </div>                                        
+                                        </div>
+                                         <div class="col-md-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Enter New Password">
+                                            <label for="floatingInput" class="text-muted">Enter New Password</label>
+                                        </div>                                        
+                                        </div>
+                                         <div class="col-md-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Confirm new Password">
+                                            <label for="floatingInput" class="text-muted">RE enter Password</label>
+                                        </div> 
+                                         <div class="card-footer text-end">
+                                            <button type="button" class="btn btn-warning text-start" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-dark" >Save</button>
+                                        </div>
+
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                </div>
+                                        
+
+                                        </div>
+
+                        </div>
+                                    
+                                    
+
+                                        
+
+                                        
+                    </div>
+                                
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock content %}

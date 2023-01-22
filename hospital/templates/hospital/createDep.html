@@ -1,0 +1,161 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+      
+    <!-- =============================modals=================================== -->
+        
+    <div class="modal fade" id="Searchbtn">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form action="">
+               <label for="searchbtn1" class="fw-bold text-success ms-1 mb-2">Search</label>
+              <input type="search" class="form-control" id="searchbtn1" placeholder="Search">
+              <div class="modal-footer">
+                  <button class="btn btn-success "> Search</button>
+              </div>
+            
+            </form>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+        
+            <div id="addDepartments" class="modal fade" tabindex="-1">
+        <div class="modal-dialog  modal-dialog-centered ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-success fw-bolder">Add New Department</h5>
+              <button type="button" class=" btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form action="#" method="POST" enctype="mul part/form-data">
+            <div class="modal-body ">
+                {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    {% render_field dforms.dep_name class+="form-control" id+="floatingInput" placeholder+="Name" %}                   
+                    <label for="floatingInput" class="text-muted">Deparment Name</label>
+                  </div>                
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                      {% render_field dforms.dep_head class+="form-control" id+="floatingInput" placeholder+="Name" %}                   
+                      <label for="floatingInput" class="text-muted">Deparment Head</label>
+                    </div>                
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                      {% render_field dforms.dep_location class+="form-control" id+="floatingInput" placeholder+="Name" %}                   
+                      <label for="floatingInput" class="text-muted">Deparment Location</label>
+                    </div>                
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                      {% render_field dforms.dep_phone class+="form-control" id+="floatingInput" placeholder+="Name" %}                   
+                      <label for="floatingInput" class="text-muted">Deparment Phone</label>
+                    </div>                
+                  </div>
+              
+              </div>          
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success" >Save</button>          
+            </div>
+            </form>
+
+          </div>
+        </div>
+            </div>
+
+
+      
+<!-- ===============================================end modal======================================= -->
+
+
+
+    <div class="container mt-3 ">   
+        <div class="row ">
+             <div class="col-lg-3 mt-1 g-0">
+                     <input type="text" placeholder="Search Department by name" class="form-control " id="myInput" onkeyup='tableSearch()'>
+             
+            </div>
+             <div class="col-lg-3 offset-lg-6 mt-1 text-end" >
+                    <button class="btn btn-success rounded-pill shadow" data-bs-toggle="modal" data-bs-target="#addDepartments">
+                      <img src="{% static 'css/bootstrap-icons-1.8.3/plus-lg.svg' %}" alt="" class="img-fluid" >
+                    </button>
+                     <button class="btn btn-success rounded-pill shadow ">
+                      <img src="{% static 'css/bootstrap-icons-1.8.3/arrow-clockwise.svg' %}" alt="" class="img-fluid">
+                    </button>
+             
+            </div>
+        
+       <div class="col-lg-12 col-md-12 col-sm-12 mt-3   border p-3 bg-white rounded ">
+         <table class="table table-hover  rounded " id="myTable" data-filter-control="true" data-show-search-clear-button="true">   
+              
+                      <h5 class="fw-bolder ms-1 text-success mb-2">Add Deparment</h5>
+
+                 <thead class="table-head table-success  ">
+                    <tr>
+                        <th>Department Name</th>
+                        <th>Department Head</th>
+                        <th>Deparment Phone</th>
+                        <th>Deparment Location</th>                     
+                        <th>Deparment created </th>                     
+                        <th class="text-end">Action</th>                     
+                        
+                         </tr>
+                    </thead>
+                    <tbody class="">
+                    {% for alld in allDs %}                                           
+                        <tr>
+                            <td>{{ alld.dep_name }} </td>
+                            <td>{{ alld.dep_head }}  </td>
+                            <td>{{ alld.dep_phone}} </td>                           
+                            <td class="fw-bold">{{alld.dep_location}} </td>
+                            <td> <span class="">{{ alld.created }}</span>  </td>
+                            <td class="text-end">
+                                <a href="{% url 'delete_department' alld.id %}" class="  bg-danger badge" >
+                                    <img src="{% static 'css/bootstrap-icons-1.8.3/trash.svg' %}" alt="">
+                                    
+                                </a>
+                                 <a href="{% url 'edit_department' alld.id %}" class=" mt-0 bg-success badge">
+                                    <img src="{% static 'css/bootstrap-icons-1.8.3/pen.svg' %}" alt="">
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                
+             
+     
+
+        </table>
+         <nav aria-label="Page navigation ">
+        <ul class="pagination justify-content-end mt-2 ">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"> <a href="#" class="page-link">5</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+                </li>
+    </ul>
+       </nav>  
+       </div>
+    </div>
+        
+    </div>
+
+    {% endblock content %}

@@ -1,0 +1,234 @@
+{% load static %}
+<div class="sticky-top">
+  <div class="container top-brand mt-1 bg-white "> 
+    <nav class="navbar bg-white rounded">
+      <div class="navbar-header">
+        <div class="sidebar-header">
+          <a href="../html/dashboard.html"
+            ><img
+              src="{% static 'images/logo-dark.png' %}"
+              alt=""
+              class="img-fluid ps-2"
+          /></a>
+        </div>
+      </div>
+
+      <ul class="nav justify-content-end">
+      
+        <li class="mt-2 ms-1"  id="btnOne">
+          
+          <span>
+              <img
+              src="{% static 'css/bootstrap-icons-1.8.3/arrows-fullscreen.svg' %}"
+              alt=""
+              class="nav-link img-fluid text-black"/>
+              
+          </span>
+      
+        
+        </li>
+                
+        <li class="mt-2 ms-3" data-bs-toggle="modal" data-bs-target="#Searchbtn">          
+            <img
+              src="{% static 'css/bootstrap-icons-1.8.3/search.svg' %}"
+              alt=""
+              class="nav-link img-fluid text-black"/>        
+            
+        </li>
+
+          <li class="">
+          <div class="dropdown">
+            <a
+              class="nav-link  dropdown"
+              href="#"
+              role="link"
+              id="dropdownMenuLink"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"               
+            >
+            <img
+              src="{% static 'css/bootstrap-icons-1.8.3/bell.svg' %}"
+              alt=""
+              class="nav-link img-fluid text-black"/>
+          </span> 
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end mt-3 p-2 " aria-labelledby="dropdownMenuLink">
+              <li class="dropdown-item bg-success rounded text-white">new Patient has been register </li>
+              <li class="dropdown-item">Patient Has been discharged</li>
+              <li class="dropdown-item mb-5">Holiday is tommorow</li>
+              <li class="dropdown-item badge bg-success">See more</li>
+          
+            </ul>
+          </div>
+        </li>
+        <li class="">
+          <div class="dropdown">
+            <a
+              class="nav-link  dropdown"
+              href="#"
+              role="link"
+              id="dropdownMenuLink"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+         
+            >
+            <img
+              src="{% static 'css/bootstrap-icons-1.8.3/person.svg' %}"
+              alt=""
+              class="nav-link img-fluid text-black"/>
+          </span> 
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="">     <span>  <img src="{% static 'css/bootstrap-icons-1.8.3/person-fill.svg' %}" alt=""></span>  Profile</a></li>
+              <li><a class="dropdown-item" href="#">
+                <img src="{% static 'css/bootstrap-icons-1.8.3/symmetry-horizontal.svg' %}" alt="">
+                Settings</a></li>
+                {% if request.user.is_authenticated %}
+                    <li>
+                       <a class="dropdown-item" href="{% url 'logout' %}">
+                      <span><img src="{% static 'css/bootstrap-icons-1.8.3/door-open.svg' %}" alt=""></span> Logout</a>
+                   </li>
+                  {% else %}
+                  <li>
+                    <a class="dropdown-item" href="{% url 'login' %}">
+                   <span><img src="{% static 'css/bootstrap-icons-1.8.3/door-open.svg' %}" alt=""></span> login</a>
+                </li>
+
+                {% endif %}
+
+            </ul>
+          </div>
+        </li>
+    
+        
+    
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container menu-nav  bg-success  ">
+    <nav class="navbar navbar-expand-lg ">
+      <button type="button" class="navbar-toggler text-end" data-bs-toggle="collapse" data-bs-target="#abdi">
+        <span><img src="{% static 'css/bootstrap-icons-1.8.3/list.svg' %}" alt=""></span>
+      </button>
+      <div class="collapse navbar-collapse  " id="abdi">
+        <ul class="navbar-nav ">
+              <li class="nav-item me-1">
+            <div class="dropdown mt-1 ">
+              <a class="btn border text-white " href="../html/dashboard.html" >
+              <span class="mb-3">
+                <img src="{% static 'css/bootstrap-icons-1.8.3/house-fill.svg' %}" alt="" class="img-fluid  mb-1">
+              </span>
+                
+              </a>
+              
+          </div>
+          </li>
+          <li class="nav-item me-1">
+            <div class="dropdown mt-1">
+              <a class="btn border text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="mb-3 ">
+                <img src="{% static 'css/bootstrap-icons-1.8.3/person-check.svg' %}" alt="" class="img-fluid  mb-1">
+              </span>
+              Doctor
+              </a>
+                    
+
+                  <ul class="dropdown-menu dropdown-menu-dark me-1 mt-2 text-white" aria-labelledby="dropdownMenuLink">
+                  <li><a class="dropdown-item" href="{% url 'list_doctor' %}">All Doctors</a></li>
+                    <li><a class="dropdown-item" href="{% url 'add_doctor' %}">Add Doctor</a></li>
+                
+                  </ul>
+          </div>
+          </li>
+          <li class="nav-item  me-1">
+            <div class="dropdown mt-1">
+            <a class="btn border text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="mb-3 ">
+              <img src="{% static 'css/bootstrap-icons-1.8.3/activity.svg' %}" alt="" class="img-fluid  mb-1">
+              </span>
+              Patient
+              </a>
+
+                  <ul class="dropdown-menu  dropdown-menu-dark  me-1 mt-2     text-white" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="{% url 'patient_list' %}">All Patient</a></li>
+                    <li><a class="dropdown-item" href="{% url 'create_patient' %}">Add Patient</a></li>
+                
+                  </ul>
+          </div>
+          </li>
+                <li class="nav-item me-1">
+            <div class="dropdown mt-1">
+              <a class="btn border text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="mb-3 text-white">
+                <img src="{% static 'css/bootstrap-icons-1.8.3/clock.svg" alt="" class="img-fluid  mb-1">
+              </span>
+              Appointments
+              </a>
+                  <ul class="dropdown-menu dropdown-menu-dark mt-2 me-1  " aria-labelledby="dropdownMenuLink">
+                
+                    <li><a class="dropdown-item" href="{% url 'allApppointment' %}">view Appointments</a></li>
+                    <li><a class="dropdown-item" href="{% url 'create_Appointment' %}">Book Appointments</a></li>
+                  </ul>
+          </div>
+          </li>
+    <li class="nav-item me-1">
+              <div class="dropdown mt-1">
+                    <a class="btn border text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="mb-3 text-white">
+                <img src="{% static 'css/bootstrap-icons-1.8.3/house-door.svg" alt="" class="img-fluid  mb-1">
+              </span>
+              Rooms
+              </a>
+                  <ul class="dropdown-menu dropdown-menu-dark  me-1 mt-2 " aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="../html/ViewAllotment.html">All Room Allotment</a></li>
+                    <li><a class="dropdown-item" href="../html/RoomAllotment.html">Add Room Allotment</a></li>
+                    
+                  </ul>
+          </div>
+          </li>
+          <li class="nav-item me-1">
+            <div class="dropdown mt-1">
+              <a class="btn border text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="mb-3 text-white">
+                <img src="{% static 'css/bootstrap-icons-1.8.3/cash.svg' %}" alt="" class="img-fluid  mb-1">
+              </span>
+              Billing
+              </a>
+                  <ul class="dropdown-menu dropdown-menu-dark  me-1 mt-2 text-white" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="../html/BillListPatient.html">Bill List</a></li>
+                    <li><a class="dropdown-item" href="../html/AddBillPatient.html">Add Bill</a></li>
+                  
+                  </ul>
+          </div>
+          </li>
+          
+          <li class="nav-item me-1">
+            <div class="dropdown mt-1">
+              <a class="btn border text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="mb-3 text-white">
+                <img src="{% static 'css/bootstrap-icons-1.8.3/building.svg' %}" alt="" class="img-fluid  mb-1">
+              </span>
+              Deparments
+              </a>
+                  <ul class="dropdown-menu dropdown-menu-dark  me-1 mt-2" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="{% url 'allDepartment' %}">All Deparments</a></li>
+                    <li><a class="dropdown-item" href="{% url 'create_Department' %}">Create Deparments</a></li>
+                    <li><a class="dropdown-item" href="../html/pharmacy.html">Pharmacy</a></li>
+                    <li><a class="dropdown-item" href="../html/staff.html">Staff</a></li>
+                    <li><a class="dropdown-item" href="../html/inventory.html">Inventary</a></li>
+                  </ul>
+          </div>
+          </li>
+          
+          
+
+        
+
+      
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

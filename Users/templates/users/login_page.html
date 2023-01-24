@@ -1,7 +1,16 @@
-{% extends 'main.html' %}  
 {% load static %}
 {% load widget_tweaks %}
-{% block content %}
+{% if messages %}
+{% for message in messages %}
+<div class="container">
+            <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+     <span class="fw-bolder">     {{message}} </span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div>
+
+{% endfor %}
+{% endif %} 
 
     <div class="container mt-5 ">
         <div class="row justify-content-center mt-5">
@@ -28,14 +37,13 @@
         
     
               <div class="card-footer">
-                <button type="submit" class="btn btn-success"> Sign In</button>
-              
+                <button type="submit" class="btn btn-success"> Sign In</button>              
               </div>
     
              </form>
         </div>
       </div>
        </div>
-       {% endblock content %}
+
       
     

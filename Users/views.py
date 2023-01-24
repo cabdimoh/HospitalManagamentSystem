@@ -10,13 +10,22 @@ def login_User(request):
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username = username, password = password)
+        
         if user is not None:
-            login(request, user)
-            messages.success(request, 'you successfully log in')
-            return redirect('homepage')
+
+
+
+                if username != username:
+                    messages.error(request, 'username is incorrect')
+                elif password != password:
+                    messages.error(request, 'password is incorrect')
+                else: 
+                    login(request, user)
+                    messages.success(request, 'you successfully log in')
+                    return redirect('homepage')
         else:
-            messages.error(request, 'ERRROR')
-            return redirect('login')
+                messages.error(request, 'ERRROR')
+                return redirect('login')
     context = {}
     return render(request,'users/login_page.html',context)
 
